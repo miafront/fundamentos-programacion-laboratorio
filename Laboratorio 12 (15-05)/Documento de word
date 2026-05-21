@@ -1,0 +1,257 @@
+Laboratorio 12 Funciones – Debugging con Funciones
+Ejercicio 1: 
+Se deberá:
+analizar código generado, 
+detectar errores lógicos y técnicos, 
+comprender el uso correcto de funciones, 
+identificar problemas de retorno y parámetros, 
+y proponer soluciones justificadas. 
+#include<iostream>
+using namespace std;
+
+float calcularPromedio(float n1, float n2, float n3);
+void mostrarResultado(float promedio);
+
+int main()
+{
+    float nota1, nota2, nota3;
+    int promedio;
+
+    cout<<"Ingrese nota 1: ";
+    cin>>nota1;
+
+    cout<<"Ingrese nota 2: ";
+    cin>>nota2;
+
+    cout<<"Ingrese nota 3: ";
+    cin>>nota3;
+
+    calcularPromedio(nota1, nota2, nota3);
+
+    mostrarResultado(promedio);
+
+    return 0;
+}
+
+float calcularPromedio(float n1, float n2, float n3)
+{
+    float promedio;
+
+    promedio = n1 + n2 + n3 / 3;
+
+    cout<<"Promedio calculado: "<<promedio<<endl;
+}
+
+void mostrarResultado(float promedio)
+{
+    if(promedio >= 51);
+    {
+        cout<<"APROBADO"<<endl;
+    }
+    else
+    {
+        cout<<"REPROBADO"<<endl;
+    }
+}
+
+El estudiante debe detectar:
+Nº	Tipo de Error	Pregunta guía
+1	Error de retorno	¿La función devuelve el promedio?
+	 No, la función calcularPromedio está declarada como float pero no tiene un return para poder imprimir el promedio.	
+2	Variable incorrecta	¿La variable promedio tiene valor en main()?
+No, solo se llama a la función en el main. Pero no tiene ninguna fórmula para calcularlo.
+
+3	Error matemático	¿La fórmula del promedio está bien?
+No, la fórmula está mal. Debería ser así: (N1 + N2 + N3) /3.
+4	Error lógico	¿Por qué siempre muestra APROBADO?
+Porque el if está mal, hay un “;” que finaliza el bucle, por eso siempre muestra APROBADO.
+
+5	Tipo de dato	¿Es correcto usar int para promedio?
+No, al ser una división entre un número impar, es mejor usar float por los decimales.
+Ejercicio 2 — Ordenar y Estructurar de Código
+
+Fundamentos de Programación – C++
+Objetivo del reto
+analizar un programa desordenado, 
+identificar errores estructurales, 
+organizar correctamente funciones, 
+comprender flujo lógico, 
+y reconstruir el programa funcionalmente.
+
+Contexto del problema
+Una tienda necesita un sistema que:
+calcule el precio total de una compra, 
+aplique descuento, 
+y muestre el monto final. 
+El programador escribió el código “rápidamente”, pero:
+el código está desordenado, 
+existen errores de estructura, 
+funciones mal ubicadas, 
+variables incorrectas, 
+y flujo lógico confuso. 
+El estudiante deberá reorganizar el programa correctamente.
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    float subtotal, total;
+    int cantidad;
+
+    cout<<"Cantidad de productos: ";
+    cin>>cantidad;
+
+    subtotal = calcularSubtotal(cantidad);
+
+    total = aplicarDescuento(subtotal);
+
+    mostrarResultado(total);
+
+    return 0;
+}
+
+void mostrarResultado(float total)
+{
+    cout<<"El total final es: "<<total;
+}
+
+float aplicarDescuento(float subtotal)
+{
+    if(subtotal > 100)
+    {
+        subtotal = subtotal - (subtotal * 0.10);
+    }
+
+    return subtotal;
+}
+
+float calcularSubtotal(int cantidad)
+{
+    float subtotal;
+
+    subtotal = cantidad * 25;
+
+    return subtotal;
+}
+
+Parte 1 — Detectar Problemas
+El estudiante deberá identificar:
+Nº	Problema	   Pregunta guía
+1	Funciones no declaradas	  ¿Por qué el compilador no reconoce funciones?
+		    Porque las funciones fueron usadas dentro del main antes      de ser utilizadas. 
+2	Orden incorrecto	   ¿Dónde deberían declararse?
+   Deberían declararse antes del main. Ya luego se pueden    escribir las definiciones completas dentro del main.
+3	Flujo del programa	    ¿Cuál es el orden lógico correcto?
+1)Pedir cantidad. 2) Calcular el subtotal. 3) Aplicar el descuento. 4) Mostrar el resultado final.
+4	Organización	    ¿Cómo mejorar legibilidad?
+    Se deberían declarar las funciones al inicio y seguir un orden de acuerdo a la lógica del ejercicio.
+
+
+Ejercicio 3: Fundamentos de Programación – C++
+
+Objetivo del reto
+Desarrollar un programa utilizando funciones para resolver un problema real.
+Se evaluará:
+lógica, 
+modularización, 
+uso de parámetros, 
+retorno de valores, 
+organización, 
+y capacidad de análisis. 
+
+Caso del Problema
+Un gimnasio universitario necesita un sistema para calcular el pago mensual de sus clientes.
+Reglas del gimnasio
+Tipo de plan	Precio
+Básico	100 Bs
+Intermedio	180 Bs
+Premium	250 Bs
+
+Descuento
+Si el cliente paga más de 3 meses:
+recibe 15% de descuento. 
+
+El programa debe
+1.Mostrar menú de planes. 
+2.Solicitar: 
+onombre del cliente, 
+otipo de plan, 
+ocantidad de meses. 
+3.Calcular subtotal. 
+4.Aplicar descuento si corresponde. 
+5.Mostrar total final. 
+
+Restricciones del reto
+El programa debe utilizar funciones para:
+Función	Objetivo
+mostrarMenu()	Mostrar planes
+obtenerPrecio()	Retornar precio según plan
+calcularSubtotal()	Calcular subtotal
+calcularDescuento()	Aplicar descuento
+mostrarResultado()	Mostrar factura final
+
+Requisitos técnicos
+El estudiante debe utilizar
+funciones, 
+parámetros, 
+retorno de valores, 
+estructuras condicionales, 
+variables correctamente tipadas. 
+EJERCICIO: 
+#include <iostream>
+using namespace std;
+void mostrarMenu()
+{
+    cout << "PLANES DEL GIMNASIO" << endl;
+    cout << "1. Basico - 100 Bs" << endl;
+    cout << "2. Intermedio - 180 Bs" << endl;
+    cout << "3. Premium - 250 Bs" << endl;
+}
+float obtenerPrecio(int plan)
+{
+    if(plan == 1)
+    return 100;
+    else if(plan == 2)
+    return 180;
+    else if(plan == 3)
+    return 250;
+    else
+    return 0;
+}
+float calcularSubtotal(float precio, int meses)
+{
+return precio * meses;
+}
+float calculardescuento(float subtotal, int meses)
+{
+    if(meses > 3)
+    {
+    subtotal = subtotal - (subtotal * 0.15);
+    }
+    return subtotal;
+}
+void mostrarresultado(string nombre, float total)
+{
+    cout << "\n--- FACTURA ---" << endl;
+    cout << "Cliente: " << nombre << endl;
+    cout << "Total a pagar: " << total << " Bs" << endl;
+}
+int main()
+{
+    string nombre;
+    int plan, meses;
+    float precio, subtotal, total;
+    cout << "Nombre del cliente: ";
+    cin >> nombre;
+    mostrarMenu();
+    cout << "Elija un plan (1-3): ";
+    cin >> plan;
+    cout << "Cantidad de meses: ";
+    cin >> meses;
+    precio = obtenerprecio(plan);
+    subtotal = calcularsubtotal(precio, meses);
+    total = calculardescuento(subtotal, meses);
+    mostrarresultado(nombre, total);
+    return 0;
+}
