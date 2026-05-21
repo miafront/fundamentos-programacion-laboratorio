@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+void leer(double &R, int &n) {
+    cout << "Numero: ";
+    cin >> R;
+    cout << "Decimales: ";
+    cin >> n;
+}
+double redondear(double R, int n) {
+    double factor = pow(10, n);
+    return round(R * factor) / factor;
+}
+void mostrar(double r) {
+    cout << "Resultado: " << r << endl;
+}
+int main() {
+    double R, res;
+    int n;
+    leer(R, n);
+    res = redondear(R, n);
+    mostrar(res);
+    return 0;
+}
