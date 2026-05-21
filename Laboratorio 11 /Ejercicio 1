@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+void datos(float &baseX, int &potenciaY) {
+    cout << "Ingrese el valor de X (la base): ";
+    cin >> baseX;
+    cout << "Ingrese el valor de Y (la potencia): ";
+    cin >> potenciaY;
+}
+float POTEN(float base, int exponente) {
+    return pow(base, exponente);
+}
+void mostrarresultado(float base, int exp, float resultado) {
+    cout << "Datos ingresados: " << base << " ^ " << exp << endl;
+    cout << "El resultado es: " << resultado << endl;
+}
+int main() {
+    float X, resultado;
+    int Y;
+    datos(X, Y);
+    resultado = POTEN(X, Y);
+    Mostrarresultado(X, Y, resultado);
+    return 0;
+}
