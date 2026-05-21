@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int contarpares(int num) {
+    if (num == 0) return 1;
+    int contador = 0;
+    while (num > 0) {
+    int digito = num % 10;
+    if (digito % 2 == 0) {
+    contador++;
+   }
+   num /= 10;
+    }
+    return contador;
+}
+int main() {
+    int numero;
+    cout << "Ingrese un numero entero positivo: ";
+    cin >> numero;
+    if (numero < 0) {
+        cout << "Debe ingresar un numero positivo" << endl;
+        return 0;
+    }
+    cout << "Cantidad de digitos pares: " << contarpares(numero) << endl;
+    return 0;
+}
