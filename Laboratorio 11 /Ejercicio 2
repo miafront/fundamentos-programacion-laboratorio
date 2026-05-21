@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+void leerfecha(int &d, int &m, int &a) {
+    cout << "Ingrese dia: ";
+    cin >> d;
+    cout << "Ingrese mes: ";
+    cin >> m;
+    cout << "Ingrese año: ";
+    cin >> a;
+}
+void LITERAL(int d, int m, int a) {
+string mestexto;
+if (m == 1) mestexto = "Enero";
+else if (m == 2) mestexto = "Febrero";
+else if (m == 3) mestexto = "Marzo";
+else if (m == 4) mestexto = "Abril";
+else if (m == 5) mestexto = "Mayo";
+else if (m == 6) mestexto = "Junio";
+else if (m == 7) mestexto = "Julio";
+else if (m == 8) mestexto = "Agosto";
+else if (m == 9) mestexto = "Septiembre";
+else if (m == 10) mestexto = "Octubre";
+else if (m == 11) mestexto = "Noviembre";
+else if (m == 12) mestexto = "Diciembre";
+else mesTexto = "Mes invalido";
+if (a < 100) {
+        a = 1900 + a;
+    }
+cout << d << " de " << mestexto << " de " << a << endl;
+}
+int main() {
+    int dia, mes, anio;
+    leerfecha(dia, mes, anio);
+    LITERAL(dia, mes, anio);
+    return 0;
+}
