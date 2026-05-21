@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+float calcularpromedio(int N) {
+    float suma = 0, valor;
+    for (int i = 1; i <= N; i++) {
+    cout << "Ingrese valor " << i << ": ";
+    cin >> valor;
+    suma += valor;
+    }
+return suma / N;
+}
+int main() {
+    int N;
+    cout << "Ingrese la cantidad de valores: ";
+    cin >> N;
+    if (N <= 0) {
+    cout << "La cantidad debe ser mayor que 0" << endl;
+    return 0;
+    }
+    float promedio = calcularpromedio(N);
+    cout << "El promedio es: " << promedio << endl;
+    return 0;
+}
