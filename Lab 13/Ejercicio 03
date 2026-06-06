@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+void leer(float t[], int n){
+for(int i=0;i<n;i++)
+cin>>t[i];
+}
+void procesar(float t[], int n, float &prom, float &mayor, float &menor, int &cont1, int &cont2){
+float suma=0;
+mayor=t[0];
+menor=t[0];
+for(int i=0;i<n;i++){
+suma+=t[i];
+if(t[i]>mayor)
+mayor=t[i];
+if(t[i]<menor)
+menor=t[i];
+}
+prom=suma/n;
+cont1=0;
+cont2=0;
+for(int i=0;i<n;i++){
+if(t[i]>prom)
+cont1++;
+if(t[i]<10)
+cont2++;
+}
+}
+int main(){
+const int n=15;
+float t[n];
+float prom,mayor,menor;
+int cont1,cont2;
+leer(t,n);
+procesar(t,n,prom,mayor,menor,cont1,cont2);
+cout<<"Mayor: "<<mayor<<endl;
+cout<<"Menor: "<<menor<<endl;
+cout<<"Promedio: "<<prom<<endl;
+cout<<"Dias sobre promedio: "<<cont1<<endl;
+cout<<"Dias menores a 10: "<<cont2<<endl;
+return 0;
+}
