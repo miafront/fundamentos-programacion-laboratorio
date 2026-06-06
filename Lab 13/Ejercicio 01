@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+void leer(float notas[], int n){
+for(int i=0;i<n;i++)
+cin>>notas[i];
+}
+void procesar(float notas[], int n, float &prom, float &mayor, float &menor){
+float suma=0;
+mayor=notas[0];
+menor=notas[0];
+for(int i=0;i<n;i++){
+suma+=notas[i];
+if(notas[i]>mayor)
+mayor=notas[i];
+if(notas[i]<menor)
+menor=notas[i];
+}
+prom=suma/n;
+}
+void mostrar(float notas[], int n, float prom, float mayor, float menor){
+for(int i=0;i<n;i++)
+cout<<notas[i]<<endl;
+cout<<"Promedio: "<<prom<<endl;
+cout<<"Mayor: "<<mayor<<endl;
+cout<<"Menor: "<<menor<<endl;
+}
+int main(){
+int n;
+cin>>n;
+float notas[100];
+float prom, mayor, menor;
+leer(notas,n);
+procesar(notas,n,prom,mayor,menor);
+mostrar(notas,n,prom,mayor,menor);
+return 0;
+}
