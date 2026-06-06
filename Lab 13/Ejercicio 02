@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+void leer(float v[]){
+for(int i=0;i<7;i++)
+cin>>v[i];
+}
+void procesar(float v[], float &total, float &prom, int &mayor, int &menor, int &cont){
+total=0;
+mayor=0;
+menor=0;
+for(int i=0;i<7;i++){
+total+=v[i];
+if(v[i]>v[mayor])
+mayor=i;
+if(v[i]<v[menor])
+menor=i;
+}
+prom=total/7;
+cont=0;
+for(int i=0;i<7;i++)
+if(v[i]>prom)
+cont++;
+}
+int main(){
+float ventas[7];
+float total,prom;
+int mayor,menor,cont;
+leer(ventas);
+procesar(ventas,total,prom,mayor,menor,cont);
+cout<<"Total: "<<total<<endl;
+cout<<"Promedio: "<<prom<<endl;
+cout<<"Mayor dia: "<<mayor+1<<endl;
+cout<<"Menor dia: "<<menor+1<<endl;
+cout<<"Dias sobre promedio: "<<cont<<endl;
+return 0;
+}
